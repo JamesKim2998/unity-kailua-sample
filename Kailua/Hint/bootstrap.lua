@@ -1,7 +1,8 @@
 --# open lua51
+-- Give type infomation to kailua.
 require 'Kailua/Hint/type_hint'
 
--- 모든 소스코드를 포함한다
+-- Include all custom scripts for static type checking
 require 'Kailua/Src/connect_xlua'
 require 'Kailua/Src/test'
-require 'Kailua/Src/test2'
+require 'Kailua/Src/boilerplate'

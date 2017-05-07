@@ -1,9 +1,11 @@
+-- Just a boilerplate for LuaBehaviour component.
+
 --# type local Self = {}
 --# assume self: Self
 
 --v function(self: Self)
 local function Awake(self)
-    print('hello, kailua!')
+    print('Awake')
 end
 
 --v function(self: Self)

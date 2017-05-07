@@ -25,7 +25,7 @@ local function Awake(self)
     self.elaspedTime = 0
 end
 
--- Unity 로고를 보여주는 GameObject를 추가
+-- Add SpriteRenderer to render Unity logo.
 --v function(self: Self)
 local function Start(self)
     local tmpSpriteRenderer = self.userdata.gameObject:AddComponent(typeof(UE.SpriteRenderer))
@@ -38,7 +38,7 @@ local function Start(self)
     self.spriteRenderer.color = UE.Color.red
 end
 
--- GameObject를 원운동 시킨다
+-- GameObject to move in circular motion.
 --v function(self: Self)
 local function Update(self)
     self.elaspedTime = self.elaspedTime + UE.Time.deltaTime
@@ -49,6 +49,7 @@ local function Update(self)
     self.userdata.transform.localPosition = v
 end
 
+-- Display buttons to control GameObject/Scene.
 --v function(self: Self)
 local function OnGUI(self)
     local r = UE.Rect.new(0, 0, UE.Screen.width, UE.Screen.height)
@@ -56,14 +57,14 @@ local function OnGUI(self)
     btnStyle.fontSize = 50
 
     UE.GUILayout.BeginArea(r)
-    -- 랜덤 색상으로 변경
+    -- Change Unity logo color to random color.
     if UE.GUILayout.Button('random color', btnStyle) then
         newColorIdx = math.random(1, #randomColors)
         --# assume newColorIdx: integer
         newColor = randomColors[newColorIdx]
         self.spriteRenderer.color = newColor
     end
-    -- 씬을 다시 로딩
+    -- Reload scene (this Lua script also will be reloaded)
     if UE.GUILayout.Button('reload scene', btnStyle) then
         UE.SceneManagement.SceneManager.LoadScene('Main')
     end

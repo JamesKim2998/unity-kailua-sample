@@ -26,9 +26,9 @@ add_new(UE.Color)
 add_new(UE.GameObject)
 add_new(UE.GUIStyle)
 
-------------------
--- My Game Code --
-------------------
+--------------------------
+-- Operator Overloading --
+--------------------------
 --# assume Vector3.Add: function(a: Vector3, b: Vector3) --> Vector3
 add_field(UE.Vector3, 'Add',
     --v [NO_CHECK] function(a: Vector3, b: Vector3) --> Vector3

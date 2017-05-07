@@ -1,6 +1,6 @@
 ------------------------------------------------
--- 아래 코드는 런타임에 돌아가는 코드가 아닙니다.
--- kailua의 static type checking을 위한 type hinting 파일입니다.
+-- WARNING: NONE OF THIS SCRIPT IS NOT FOR RUNTIME USAGE.
+-- YOU SHOULD ADD ONLY TYPE HINT FOR KAILUA.
 ------------------------------------------------
 
 --# assume global `class`: [make_class] function() --> any
@@ -8,7 +8,7 @@
 ---------------
 -- Common C# --
 ---------------
---# type Type = { } -- C#의 Type class를 선언
+--# type Type = { }
 typeof = 
     --v function(obj: any) --> Type
     function(obj) return nil end
@@ -16,21 +16,21 @@ typeof =
 -----------------
 -- UnityEngine --
 -----------------
--- namespace 등록
-CS = { -- namespace CS 선언
-    UnityEngine = { -- namespace UnityEngine 선언
-        UI = {}, -- namespace UI 선언
-        SceneManagement = {}, -- namespace SceneManagement 선언
+-- register all namespaces
+CS = { -- declare namespace CS
+    UnityEngine = { -- declare namespace UnityEngine
+        UI = {}, -- declare namespace UI
+        SceneManagement = {}, -- declare namespace SceneManagement
     }
 }
 
--- namespace aliasing
+-- alias namespaces
 local UE = CS.UnityEngine
 local UI = UE.UI
 local SM = UE.SceneManagement
 
 -- forward declaration
-Vector3 = class() UE.Vector3 = Vector3 -- namespace CS.UnityEngine에 등록
+Vector3 = class() UE.Vector3 = Vector3 -- register Vector3 to namespace CS.UnityEngine
 Rect = class() UE.Rect = Rect
 Color = class() UE.Color = Color
 Object = class() UE.Object = Object
