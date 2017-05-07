@@ -7,7 +7,7 @@ using XLua;
 
 using ScriptFunc = System.Action<XLua.LuaTable>;
 
-public class LuaTest : MonoBehaviour
+public class LuaBehaviour : MonoBehaviour
 {
     public string FileName = "test";
 
